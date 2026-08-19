@@ -81,6 +81,10 @@ When launched from the in-GUI 「🖥️ 桌面模式」 button, the correct `--
 - ZipZipPipe — character art
 - [DeepSeek Harness](https://github.com/deepseek-ai/DeepSeek-Harness) — the harness this pet lives on
 
+## 📝 Development
+
+See [docs/development.md](docs/development.md) for architecture decisions, gotchas (macOS 26 transparent-window dragging, instance auto-discovery, click-vs-drag discrimination) and release history.
+
 ## 📄 License
 
 MIT — see [LICENSE](LICENSE).
