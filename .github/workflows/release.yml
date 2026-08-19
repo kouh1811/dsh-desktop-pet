@@ -1,0 +1,35 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  build-macos:
+    name: Build macOS companion
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build companion binary
+        run: |
+          ./build.sh
+
+      - name: Verify companion runs
+        run: |
+          ./companion/dsh-desktop-pet --help >/dev/null 2>&1 || true
+          ls -la companion/dsh-desktop-pet
+
+      - name: Package assets
+        run: |
+          mkdir -p dist
+          cp companion/dsh-desktop-pet dist/
+          cp README.md LICENSE dist/
+          cd dist && zip -r ../dsh-desktop-pet-macos.zip .
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dsh-desktop-pet-macos.zip
+          generate_release_notes: true
