@@ -1,0 +1,5 @@
+# dependencies (installed via `pnpm install` when developing locally)
+node_modules/
+
+# macOS
+.DS_Store

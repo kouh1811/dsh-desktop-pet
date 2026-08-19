@@ -1,0 +1,35 @@
+{
+  "name": "dsh-desktop-pet",
+  "version": "0.2.0",
+  "type": "module",
+  "description": "Desktop pet for DeepSeek Harness: a floating companion on your desktop that shows live task status. 桌宠插件：悬浮在桌面上的鲸鱼娘伙伴，实时显示 DeepSeek Harness 的任务状态。",
+  "main": "lib/index.mjs",
+  "files": [
+    "lib/index.mjs",
+    "lib/client.js",
+    "lib/client",
+    "lib/src",
+    "lib/assets/characters",
+    "lib/assets/manifest.json",
+    "companion",
+    "cordis.patch.yml"
+  ],
+  "exports": {
+    ".": "./lib/index.mjs",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "dependencies": {
+    "schemastery": "^3.18.0"
+  },
+  "license": "MIT"
+}
